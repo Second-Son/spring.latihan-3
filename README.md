@@ -32,6 +32,6 @@ Silahkan boleh bebas pilih salah satu teknologi berikut:
 
 - Fork Repository ini.
 - Waktu pengerjaan **2 hari** max push `2 Nov 2017` jam `23:59` 
-- Boleh google, **Tidak boleh saling tanya sesama teman** be creative, make your own project. Goodluck!
+- Boleh google, **Tidak boleh saling tanya sesama teman** be creative, **make your own project**. Goodluck!
 - Hari jumat akan di review, **setiap peserta akan mempersetasikan hasil karya-nya** dan menjelaskan workflownya
   
