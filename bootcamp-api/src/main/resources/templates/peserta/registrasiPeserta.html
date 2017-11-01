@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+<!--/*@thymesVar id="model" type="com.tabel.data.bootcamp.model.Peserta"*/-->
+
+    <form action="/peserta/registrasi" method="post">
+        <div>
+            <label for="nama">Nama Peserta</label>
+            <input type="text" name="nama" id="nama" th:field="*{nama}"/>
+        </div>
+        <div>
+            <label for="alamat">Alamat</label>
+            <input type="text" name="alamat" id="alamat" th:field="*{alamat}"/>
+        </div>
+        <div>
+            <label for="tempatLahir">Tempat Lahir</label>
+            <input type="text" name="tempatLahir" id="tempatLahir" th:field="*{tempatLahir}"/>
+        </div>
+        <div>
+            <label for="tanggalLahir">Tanggal Lahir</label>
+            <input type="text" name="tanggalLahir" id="tanggalLahir" th:field="*{nomorKtp}"/>
+        </div>
+        <div>
+            <label for="sekolah">Asal Sekolah / Universitas</label>
+            <input type="text" name="sekolah" id="sekolah" th:field="*{sekolah}"/>
+        </div>
+        <div>
+            <label for="tahunLulus">Tahun Lulus</label>
+            <input type="number" name="tahunLulus" id="tahunLulus" th:field="*{tahunLulus}"/>
+        </div>
+        <div>
+            <label for="ipk">IPK</label>
+            <input type="text" name="ipk" id="ipk" th:field="*{ipk}"/>
+        </div>
+        <div>
+            <button type="submit">Simpan</button>
+            <button type="reset">Reset</button>
+        </div>
+    </form>
+</body>
+</html>
