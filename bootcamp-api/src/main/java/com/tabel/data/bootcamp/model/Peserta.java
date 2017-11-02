@@ -14,7 +14,6 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "m_peserta")
-@EqualsAndHashCode(callSuper = false)
 public class Peserta extends User{
 
     @NotNull
@@ -27,6 +26,9 @@ public class Peserta extends User{
     @Column(name = "alamat_peserta")
     private String alamat;
 
+    @Column(name = "handphone")
+    private String handphone;
+    
     @Column(name = "tempat_lahir")
     private String tempatLahir;
 

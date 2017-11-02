@@ -1,16 +1,20 @@
 package com.tabel.data.bootcamp.model;
 
 
+import java.util.ArrayList;
+import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
+import lombok.ToString;
 
 @Data
-@Table(name = "m_jadwal")
 @Entity
+@Table(name = "m_jadwal")
+@ToString(exclude = "materiBootcamp")
 @AllArgsConstructor
 @NoArgsConstructor
 public class Jadwal {
@@ -23,10 +27,10 @@ public class Jadwal {
     @Column(name = "waktu")
     private String waktu;
 
-    @Column(name = "materi")
-    private String Materi;
-
     @ManyToOne
     @JoinColumn(name = "id_pemateri", nullable = false)
     private Pemateri pemateri;
+
+    @OneToMany(mappedBy = "jadwal")
+    private List<Materi> materiBootcamp = new ArrayList<>();
 }
