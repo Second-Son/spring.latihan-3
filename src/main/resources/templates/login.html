@@ -16,7 +16,7 @@
             
             <div class="col-md-4">
               <section class="login-form">
-                <form method="post" action="#" role="login">
+                <form method="post" action="#" role="login" th:action="@{/login-form}" th:method="post">
                   <div class="form-group">
                     <img src="http://www.tabeldata.com/wp-content/uploads/2016/09/Tabel-Data-Informatika.png" class="img-responsive" alt="" />
                   </div>
@@ -26,7 +26,7 @@
                   </div>
                   
                   <div class="form-group">
-                    <input type="password" class="form-control input-lg" id="password" placeholder="Password"/>
+                    <input type="password" name="password" class="form-control input-lg" id="password" placeholder="Password"/>
                   </div>
         
                   <div>
