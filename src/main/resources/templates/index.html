@@ -1,8 +1,13 @@
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <title th:text="${titleApp}"></title>
 </head>
 <body>
-Spring Web MVC
+    Halo
+
+
+    <div sec:authorize="hasRole('ROLE_PESERTA')">
+        Halo <span sec:authentication="name"></span>
+    </div>
 </body>
 </html>

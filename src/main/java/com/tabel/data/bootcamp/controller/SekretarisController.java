@@ -1,14 +1,10 @@
 package com.tabel.data.bootcamp.controller;
 
-import com.tabel.data.bootcamp.model.Jadwal;
-import com.tabel.data.bootcamp.model.Pemateri;
-import com.tabel.data.bootcamp.model.Peserta;
-import com.tabel.data.bootcamp.repository.JadwalRepository;
-import com.tabel.data.bootcamp.repository.PemateriRepository;
-import com.tabel.data.bootcamp.repository.PesertaRepository;
-import com.tabel.data.bootcamp.repository.SekretarisRepository;
+import com.tabel.data.bootcamp.model.*;
+import com.tabel.data.bootcamp.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -24,10 +20,16 @@ public class SekretarisController {
     private JadwalRepository jadwalRepository;
 
     @Autowired
-    private SekretarisRepository sekretarisRepository;
+    private PasswordEncoder passwordEncoder;
 
     @Autowired
     private PesertaRepository pesertaRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
+
+    @Autowired
+    private UserRolesRepository userRolesRepository;
 
     @GetMapping("/peserta/list")
     public String listPeserta(Authentication auth,Model model, Peserta peserta){
@@ -42,9 +44,14 @@ public class SekretarisController {
     }
 
     @PostMapping("/mentor/add")
-    public String submitAddPemateri(Authentication auth, @ModelAttribute Pemateri pemateri){
+    public String submitAddPemateri(Authentication auth, @ModelAttribute Pemateri pemateri, UserRoles userRoles){
         pemateri.setActive(true);
+        pemateri.setPassword(passwordEncoder.encode(pemateri.getPassword()));
+        userRoles.setUser(pemateri);
+        Role role = roleRepository.findOne("1");
+        userRoles.setRole(role);
         this.pemateriRepository.save(pemateri);
+        this.userRolesRepository.save(userRoles);
         return "redirect:/admin/mentor/add";
 
     }
