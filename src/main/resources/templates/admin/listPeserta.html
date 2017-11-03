@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<!--/*@thymesVar id="model" type="com.tabel.data.bootcamp.model.Peserta"*/-->
+
+<nav class="navbar navbar-default background-color= #1179f4" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bootcamp Tabel Data Informatika</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/admin/mentor/add" th:href="@{/admin/mentor/add}">Tambah Pemateri</a></li>
+                <li><a href="/admin/jadwal/add" th:href="@{/admin/jadwal/add}">Tambah Jadwal</a></li>
+                <li><a href="/admin/peserta/list" th:href="@{/admin/peserta/list}">Daftar Peserta</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <div class="form-group">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <td>No</td>
+                            <td>Nama</td>
+                            <td>Asal Sekolah</td>
+                            <td>Tahun Lulus</td>
+                            <td>Email</td>
+                            <td>Handphone</td>
+                            <td>Aksi</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr th:each=" value, iterStat : ${p}">
+                            <td th:text="${iterStat.count}"></td>
+                            <td th:text="${value.nama}"></td>
+                            <td th:text="${value.sekolah}"></td>
+                            <td th:text="${value.tahunLulus}"></td>
+                            <td th:text="${value.username}"></td>
+                            <td th:text="${value.handphone}"></td>
+                            <td>
+                                <a href="/admin/peserta/data" th:href="@{'/admin/peserta/'+${value.id}}" class="btn">Lihat</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+</div>
+</body>
+</html>

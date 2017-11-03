@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>
+<!--/*@thymesVar id="model" type="com.tabel.data.bootcamp.model.Peserta"*/-->
+
+<nav class="navbar navbar-default background-color= #1179f4" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bootcamp Tabel Data Informatika</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/admin/mentor/add" th:href="@{/admin/mentor/add}">Tambah Pemateri</a></li>
+                <li><a href="/admin/jadwal/add" th:href="@{/admin/jadwal/add}">Tambah Jadwal</a></li>
+                <li><a href="/admin/peserta/list" th:href="@{/admin/peserta/list}">Daftar Peserta</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+<div class="container">
+    <div class="row">
+        <form action="" method="post" th:object="${p}">
+            <div class="col-md-7">
+
+                <div class="form-group">
+                    <label for="id" class="input-label">Id</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                        <input type="text" name="id" id="id" class="form-control" th:field="*{id}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="nama" class="input-label">Nama</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                        <input type="text" name="nama" id="nama" class="form-control" th:field="*{nama}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat" class="input-label">Alamat</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></span>
+                        <input type="text" name="alamat" id="alamat" class="form-control" th:field="*{alamat}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tempatLahir" class="input-label">Tempat Lahir</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></span>
+                        <input type="text" name="tempatLahir" id="tempatLahir" class="form-control" th:field="*{tempatLahir}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tanggalLahir" class="input-label">Tanggal Lahir</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                        <input type="text" name="tanggalLahir" id="tanggalLahir" class="form-control" th:field="*{tanggalLahir}" readonly="readonly"/>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-5">
+
+                <div class="form-group">
+                    <label for="alamat" class="input-label">Handphone</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></span>
+                        <input type="text" name="handphone" id="handphone" class="form-control" th:field="*{handphone}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="sekolah" class="input-label">Asal Sekolah / Universitas</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
+                        <input type="text" name="sekolah" id="sekolah" class="form-control" th:field="*{sekolah}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tahunLulus" class="input-label">Tahun Lulus</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                        <input type="number" name="tahunLulus" id="tahunLulus" class="form-control" th:field="*{tahunLulus}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="ipk" class="input-label">IPK</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i></span>
+                        <input type="text" name="ipk" id="ipk" class="form-control" th:field="*{ipk}" readonly="readonly"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="username" class="email">Email</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+                        <input type="email" name="username" id="username" class="form-control" th:field="*{username}" readonly="readonly"/>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

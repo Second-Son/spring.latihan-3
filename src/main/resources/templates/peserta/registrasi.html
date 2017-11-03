@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/webjars/jquery/jquery.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!--/*@thymesVar id="model" type="com.tabel.data.bootcamp.model.Peserta"*/-->
+
+<nav class="navbar navbar-default background-color= #1179f4" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Jadwal dan Materi
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu">
+                        <li th:each="v : ${jw}"><a href="/peserta/jadwal" th:href="@{'/peserta/jadwal/'+${v.id}}"><span th:text="${v.waktu}"></span></a></li>
+                    </ul>
+                </div></li>
+                <li><a href="login">login</a></li>
+                <li><a href="/peserta/registrasi" th:href="@{/peserta/registrasi}">Register</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <form action="/peserta/registrasi" method="post" th:object="${registrasi}" th:action="@{/peserta/registrasi}" th:method="post">
+        <div class="col-md-7">
+            
+                <div class="form-group">
+                    <label for="nama" class="input-label">Nama</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user" aria-hidden="true"></i></span>
+                        <input type="text" name="nama" id="nama" class="form-control" th:field="*{nama}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat" class="input-label">Alamat</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></span>
+                        <input type="text" name="alamat" id="alamat" class="form-control" th:field="*{alamat}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="alamat" class="input-label">Handphone</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone" aria-hidden="true"></i></span>
+                        <input type="text" name="handphone" id="handphone" class="form-control" th:field="*{handphone}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tempatLahir" class="input-label">Tempat Lahir</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-home" aria-hidden="true"></i></span>
+                        <input type="text" name="tempatLahir" id="tempatLahir" class="form-control" th:field="*{tempatLahir}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tanggalLahir" class="input-label">Tanggal Lahir</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                        <input type="text" name="tanggalLahir" id="tanggalLahir" class="form-control" th:field="*{tanggalLahir}"/>
+                    </div>
+                </div>
+
+        </div>
+
+        <div class="col-md-5">
+            <div class="form-group">
+                <label for="sekolah" class="input-label">Asal Sekolah / Universitas</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-education" aria-hidden="true"></i></span>
+                    <input type="text" name="sekolah" id="sekolah" class="form-control" th:field="*{sekolah}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="tahunLulus" class="input-label">Tahun Lulus</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar" aria-hidden="true"></i></span>
+                    <input type="number" name="tahunLulus" id="tahunLulus" class="form-control" th:field="*{tahunLulus}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="ipk" class="input-label">IPK</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign" aria-hidden="true"></i></span>
+                    <input type="text" name="ipk" id="ipk" class="form-control" th:field="*{ipk}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="username" class="email">Email</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+                    <input type="email" name="username" id="username" class="form-control" th:field="*{username}"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="password" class="password">Password</label>
+                <div class="input-group">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-eye-close" aria-hidden="true"></i></span>
+                    <input type="password" name="password" id="password" class="form-control" th:field="*{password}"/>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                    <button class="btn btn-primary" type="submit">Kirim</button>
+                </div>
+            </div>
+            <div class="col-md-4">
+
+            </div>
+        </div>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

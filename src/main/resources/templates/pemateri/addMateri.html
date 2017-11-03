@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+</head>
+<body>
+<!--/*@thymesVar id="model" type="com.tabel.data.bootcamp.model.Peserta"*/-->
+
+<nav class="navbar navbar-default background-color= #1179f4" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Bootcamp Tabel Data Informatika</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/mentor/materi/add" th:href="@{/mentor/materi/add}">Tambah Materi</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div><!--/.container-fluid -->
+</nav>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="form-group">
+                <form action="/mentor/materi/add" method="post" th:object="${addMateri}" th:action="@{/mentor/materi/add}" th:method="post">
+                    <label for="jadwal" class="input-label">Piih Jadwal</label>
+                    <div class="input-group">
+                        <select class="form-control" name="jadwal" id="jadwal" th:field="*{jadwal.id}">
+                            <option th:each="p : ${m}" value="1" th:value="${p.id}">
+                                <span th:text="${p.waktu}"></span>
+                            </option>
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label for="materi" class="input-label">Materi Bootcamp</label>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></span>
+                            <input type="text" name="materi" id="materi" class="form-control" th:field="*{materi}"/>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary" type="submit">Kirim</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="form-group">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <td>No</td>
+                        <td>Waktu Bootcamp</td>
+                        <td>Materi</td>
+                        <td>Aksi</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each=" value, iterStat : ${p}">
+                        <td th:text="${iterStat.count}"></td>
+                        <td th:text="${value.jadwal.waktu}"></td>
+                        <td th:text="${value.materi}"></td>
+                        <td>
+                            <a href="/mentor/materi/delete" class="btn">Delete</a>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
