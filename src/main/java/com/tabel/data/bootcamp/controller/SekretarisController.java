@@ -31,6 +31,9 @@ public class SekretarisController {
     @Autowired
     private UserRolesRepository userRolesRepository;
 
+    @Autowired
+    private MateriRepository materiRepository;
+
     @GetMapping("/peserta/list")
     public String listPeserta(Authentication auth,Model model, Peserta peserta){
         model.addAttribute("p", pesertaRepository.findAll());
@@ -76,10 +79,11 @@ public class SekretarisController {
         return "/admin/dataPeserta";
     }
 
-//    @GetMapping("/jadwal/delete/{id}")
-//    public String deleteJadwal(@PathVariable(name = "id", required = true) Jadwal jadwal, Model model){
-//        jadwalRepository.delete(jadwal);
-//        return "redirect:/admin/jadwal/add";
-//    }
+    @GetMapping("/jadwal/delete/{id}")
+    public String deleteJadwal(@PathVariable(name = "id", required = true) Jadwal jadwal){
+        materiRepository.deleteMateriJadwal(jadwal);
+        jadwalRepository.delete(jadwal);
+        return "redirect:/admin/jadwal/add";
+    }
 
 }

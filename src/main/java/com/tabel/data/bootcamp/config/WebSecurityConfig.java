@@ -24,7 +24,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
                 .antMatchers("/peserta/**").hasRole("PESERTA")
                 .anyRequest().authenticated()
                 .and().formLogin().loginPage("/login-form").defaultSuccessUrl("/home").permitAll()
-                .and().logout().logoutSuccessUrl("/home").permitAll();
+                .and().logout().logoutSuccessUrl("/login-form").permitAll();
     }
 
     @Bean

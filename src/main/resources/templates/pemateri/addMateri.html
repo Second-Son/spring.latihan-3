@@ -23,6 +23,7 @@
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="/mentor/materi/add" th:href="@{/mentor/materi/add}">Tambah Materi</a></li>
+                <li><a href="/logout" th:href="@{/logout}">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
@@ -75,7 +76,7 @@
                         <td th:text="${value.jadwal.waktu}"></td>
                         <td th:text="${value.materi}"></td>
                         <td>
-                            <a href="/mentor/materi/delete" class="btn">Delete</a>
+                            <span><a href="/mentor/materi/delete" th:href="@{'/mentor/materi/delete/'+${value.id}}" class="btn">Delete</a></span>
                         </td>
                     </tr>
                     </tbody>

@@ -36,14 +36,17 @@ public class IndexController {
     private UserRolesRepository userRolesRepository;
 
     @GetMapping("/home")
-    public String indexHtml(Authentication auth, Model model){
-        model.addAttribute("titleApp",
-                "Aplikasi Pendaftaran Bootcamp");
+    public String indexHtml(Authentication auth,Peserta peserta, Model model){
+        model.addAttribute("titleApp","Aplikasi Pendaftaran Bootcamp");
+        model.addAttribute("jw", jadwalRepository.findAll());
+        model.addAttribute("registrasi", peserta);
+
         return "/index";
     }
 
     @GetMapping("/login-form")
     public String showFormLogin(){
+
         return "/login";
     }
 

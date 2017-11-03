@@ -36,8 +36,7 @@
                         <li th:each="v : ${jw}"><a href="/peserta/jadwal" th:href="@{'/peserta/jadwal/'+${v.id}}"><span th:text="${v.waktu}"></span></a></li>
                     </ul>
                 </div></li>
-                <li><a href="login">login</a></li>
-                <li><a href="/peserta/registrasi" th:href="@{/peserta/registrasi}">Register</a></li>
+                <li><a href="/logout" th:href="@{/logout}">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div><!--/.container-fluid -->
